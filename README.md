@@ -50,6 +50,9 @@ fixing up the content.  However, there are a few things to watch out for.
   corresponding characters.  HTML entities within `[sourcecode]` or `[code]`
   blocks will be rendered literally.
 - Sometimes Wordpress seems to insert extra `<br />`s for no apparent reason.
+- This script doesn't handle uploaded content, so you'll need to manually
+  re-upload and fix the references for any images, videos, etc. that you
+  uploaded through the Wordpress interface.
 
 ## Usage
 
