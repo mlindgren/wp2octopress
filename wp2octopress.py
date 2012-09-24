@@ -46,11 +46,11 @@ def missing_name_check(post):
     global missing_name_count
 
     if post.post_name.lstrip().rstrip() == '':
-        name = ''.join([chr for chr in post.post_title.replace(' ', '-')
-                        if chr.isalnum() or chr == '-'])
+        name = ''.join([char for char in post.post_title.replace(' ', '-')
+                        if char.isalnum() or char == '-'])
         if name.lstrip().rstrip() == '':
-		name = 'missing-name-' + str(missing_name_count)
-		missing_name_count += 1
+            name = 'missing-name-' + str(missing_name_count)
+            missing_name_count += 1
         sys.stderr.write(
         "Warning: page/post {0} (ID {1}) has no name. Using name {2}\n"\
         .format(post.post_title, post.id, name))
@@ -112,7 +112,7 @@ def dump_single_post(post, post_categories, output_dir):
          ', '.join(post_categories.get(post.id) or []),
          WP_PUBLISH[post.post_status],
          fix_post_content(post.post_content))
-    
+
     output.write(
 """---
 layout: post
@@ -128,7 +128,8 @@ published: {4}
     output.close()
 
 
-def dump_posts(db, host, username, password, posts_output_dir, pages_output_dir):
+def dump_posts(db, host, username, password, posts_output_dir,
+               pages_output_dir):
     """
     Connects to the database and dumps the posts.
     """
@@ -185,8 +186,8 @@ def main():
     """
 
     if len(sys.argv) < 6:
-       print USAGE.format(sys.argv[0])
-       return 0
+        print USAGE.format(sys.argv[0])
+        return 0
 
     dump_posts(*sys.argv[1:])
 
